@@ -54,6 +54,12 @@ abstract class SqlBasedHome<TEntity extends Entity> {
 		val valuesPlaceholder = columns.filter[it != pkName].map['''«it» = ?'''].join(",")
 		executeStatement(objeto, '''UPDATE «tableName» SET «valuesPlaceholder» WHERE «pkName»=«objeto.id»''')
 	}
+	
+	def delete(TEntity objeto) {
+		val statement = connection.prepareStatement('''DELETE FROM «tableName»  WHERE «pkName»=«objeto.id»''')
+		statement.execute
+		statement.close		
+	}
 
 	def executeStatement(TEntity entity, String query) {
 		try {

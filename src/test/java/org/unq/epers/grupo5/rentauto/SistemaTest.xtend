@@ -53,7 +53,12 @@ class SistemaTest extends DatabaseTest {
 		sistema.registrar(miguelDelSel)
 	}
 	
-	
+	@Test
+	def void testValidarCuentaActualizaAlUsuarioDejandoloValidadoSiElCodigoValidacionEsCorrecto()
+	{
+		sistema.validarCuenta(miguelDelSel ,  "1234567890")
+		assertTrue(miguelDelSel.isIs_validado)
+	}
 	
 
 	def dropAndCreateDatabase() {
