@@ -3,6 +3,9 @@ package org.unq.epers.grupo5.rentauto
 import org.junit.Test
 
 import static org.junit.Assert.*
+import org.unq.epers.grupo5.rentauto.model.TodoTerreno
+import org.unq.epers.grupo5.rentauto.model.Deportivo
+import org.unq.epers.grupo5.rentauto.model.Turismo
 
 class CalculoDePrecioTest extends AbstractTest {
 		
@@ -13,19 +16,19 @@ class CalculoDePrecioTest extends AbstractTest {
 	
 	@Test
 	def precioTodoTerreno(){
-		auto.categoria = new ar.edu.unq.epers.model.TodoTerreno
+		auto.categoria = new TodoTerreno
 		assertEquals(auto.costoTotal, auto.costoBase*1.10, 0)
 	}
 	
 	@Test
 	def precioDeportivo(){
-		auto.categoria = new ar.edu.unq.epers.model.Deportivo
+		auto.categoria = new Deportivo
 		assertEquals(auto.costoTotal, auto.costoBase*1.20, 0)
 	}
 	
 	@Test
 	def precioTurismo(){
-		auto.categoria = new ar.edu.unq.epers.model.Turismo
+		auto.categoria = new Turismo
 		assertEquals(auto.costoTotal, auto.costoBase - 200, 0)
 	}
 	

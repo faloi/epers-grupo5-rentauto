@@ -1,14 +1,14 @@
 package org.unq.epers.grupo5.rentauto
 
-import ar.edu.unq.epers.model.Auto
-import ar.edu.unq.epers.model.Categoria
-import ar.edu.unq.epers.model.Empresa
-import ar.edu.unq.epers.model.Familiar
-import ar.edu.unq.epers.model.IUsuario
-import ar.edu.unq.epers.model.Ubicacion
 import org.junit.Before
 
 import static org.mockito.Mockito.*
+import org.unq.epers.grupo5.rentauto.model.Auto
+import org.unq.epers.grupo5.rentauto.model.Categoria
+import org.unq.epers.grupo5.rentauto.model.Ubicacion
+import org.unq.epers.grupo5.rentauto.model.IUsuario
+import org.unq.epers.grupo5.rentauto.model.Empresa
+import org.unq.epers.grupo5.rentauto.model.Familiar
 
 class AbstractTest {
 	protected Auto auto

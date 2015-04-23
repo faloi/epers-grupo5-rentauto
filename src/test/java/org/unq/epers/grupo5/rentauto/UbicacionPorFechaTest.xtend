@@ -3,7 +3,8 @@ package org.unq.epers.grupo5.rentauto
 import org.junit.Test
 
 import static org.junit.Assert.*
-import static ar.edu.unq.epers.extensions.DateExtensions.*
+import static org.unq.epers.grupo5.rentauto.extensions.DateExtensions.*
+import org.unq.epers.grupo5.rentauto.model.Reserva
 
 class UbicacionPorFechaTest extends AbstractTest {
 		
@@ -14,7 +15,7 @@ class UbicacionPorFechaTest extends AbstractTest {
 	
 	@Test
 	def ubicacionUnaReserva(){
-		new ar.edu.unq.epers.model.Reserva => [
+		new Reserva => [
 			origen = retiro
 			destino = aeroparque
 			inicio = nuevaFecha(2015,03,01)
@@ -35,7 +36,7 @@ class UbicacionPorFechaTest extends AbstractTest {
 
 	@Test
 	def ubicacionDosReservas(){
-		new ar.edu.unq.epers.model.Reserva => [
+		new Reserva => [
 			origen = retiro
 			destino = aeroparque
 			inicio = nuevaFecha(2015,03,01)
@@ -45,7 +46,7 @@ class UbicacionPorFechaTest extends AbstractTest {
 			reservar()
 		]
 
-		new ar.edu.unq.epers.model.Reserva => [
+		new Reserva => [
 			origen = aeroparque
 			destino = retiro
 			inicio = nuevaFecha(2015,03,06)

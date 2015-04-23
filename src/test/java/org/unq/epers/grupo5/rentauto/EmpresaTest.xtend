@@ -1,14 +1,15 @@
 package org.unq.epers.grupo5.rentauto
 
 import org.junit.Test
-import static ar.edu.unq.epers.extensions.DateExtensions.*
+import static org.unq.epers.grupo5.rentauto.extensions.DateExtensions.*
 import static org.junit.Assert.*
-import ar.edu.unq.epers.model.ReservaException
+import org.unq.epers.grupo5.rentauto.model.ReservaException
+import org.unq.epers.grupo5.rentauto.model.ReservaEmpresarial
 
 class EmpresaTest extends AbstractTest{
 	@Test
 	def void reservaOk(){
-		new ar.edu.unq.epers.model.ReservaEmpresarial => [
+		new ReservaEmpresarial => [
 			origen = retiro
 			destino = aeroparque
 			inicio = nuevaFecha(2015,03,01)
@@ -23,7 +24,7 @@ class EmpresaTest extends AbstractTest{
 
 	@Test(expected=ReservaException)
 	def void reservaUsuarioInvalido(){
-		new ar.edu.unq.epers.model.ReservaEmpresarial => [
+		new ReservaEmpresarial => [
 			origen = retiro
 			destino = aeroparque
 			inicio = nuevaFecha(2015,03,01)

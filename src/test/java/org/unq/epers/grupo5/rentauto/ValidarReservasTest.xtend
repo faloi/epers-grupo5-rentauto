@@ -1,15 +1,16 @@
 package org.unq.epers.grupo5.rentauto
 
+import org.unq.epers.grupo5.rentauto.model.ReservaException
 import org.junit.Test
+import org.unq.epers.grupo5.rentauto.model.Reserva
 
+import static org.unq.epers.grupo5.rentauto.extensions.DateExtensions.*
 import static org.junit.Assert.*
-import static ar.edu.unq.epers.extensions.DateExtensions.*
-import ar.edu.unq.epers.model.ReservaException
 
 class ValidarReservasTest extends AbstractTest {
 	@Test
 	def reservaUnica() {
-		new ar.edu.unq.epers.model.Reserva => [
+		new Reserva => [
 			origen = retiro
 			destino = aeroparque
 			inicio = nuevaFecha(2015, 03, 01)
@@ -23,7 +24,7 @@ class ValidarReservasTest extends AbstractTest {
 
 	@Test
 	def reservaQueNoSePisan() {
-		new ar.edu.unq.epers.model.Reserva => [
+		new Reserva => [
 			origen = retiro
 			destino = aeroparque
 			inicio = nuevaFecha(2015, 03, 01)
@@ -33,7 +34,7 @@ class ValidarReservasTest extends AbstractTest {
 			reservar()
 		]
 
-		new ar.edu.unq.epers.model.Reserva => [
+		new Reserva => [
 			origen = aeroparque
 			destino = retiro
 			inicio = nuevaFecha(2015, 03, 06)
@@ -49,7 +50,7 @@ class ValidarReservasTest extends AbstractTest {
 	@Test(expected=ReservaException)
 	def reservaQueSePisan() {
 		auto.agregarReserva(
-			new ar.edu.unq.epers.model.Reserva => [
+			new Reserva => [
 				origen = retiro
 				destino = aeroparque
 				inicio = nuevaFecha(2015, 03, 01)
@@ -58,7 +59,7 @@ class ValidarReservasTest extends AbstractTest {
 			])
 
 		auto.agregarReserva(
-			new ar.edu.unq.epers.model.Reserva => [
+			new Reserva => [
 				origen = aeroparque
 				destino = retiro
 				inicio = nuevaFecha(2015, 03, 04)
@@ -72,7 +73,7 @@ class ValidarReservasTest extends AbstractTest {
 	@Test(expected=ReservaException)
 	def reservasSinSentido() {
 		auto.agregarReserva(
-			new ar.edu.unq.epers.model.Reserva => [
+			new Reserva => [
 				origen = retiro
 				destino = aeroparque
 				inicio = nuevaFecha(2015, 03, 01)
@@ -81,7 +82,7 @@ class ValidarReservasTest extends AbstractTest {
 			])
 
 		auto.agregarReserva(
-			new ar.edu.unq.epers.model.Reserva => [
+			new Reserva => [
 				origen = retiro
 				destino = aeroparque
 				inicio = nuevaFecha(2015, 03, 05)
