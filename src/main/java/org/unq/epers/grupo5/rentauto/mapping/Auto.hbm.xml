@@ -36,7 +36,7 @@
 
 		<list name="reservas" table="reservas_">
 			<key column="reservasId" not-null="true" />
-			<list-index column="peopleIdx" />
+			<list-index column="reservasIdx" />
 			<one-to-many class="Reserva" />
 		</list>
 

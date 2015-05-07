@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+
+
+	<class name="org.unq.epers.grupo5.rentauto.model.Empresa" table="empresas">
+		<id name="id" type="java.lang.Integer">
+			<column name="E_ID" />
+			<generator class="identity" />
+		</id>
+
+		<property name="cuit" type="java.lang.String">
+			<column name="E_CUIT" length="20" not-null="true" unique="false" />
+		</property>
+
+		<property name="nombreEmpresa" type="java.lang.String">
+			<column name="E_NOMBREEMPRESA" length="20" not-null="true"
+				unique="false" />
+		</property>
+
+		<property name="cantidadMaximaDeReservasActivas" type="java.lang.Integer">
+			<column name="E_CANTIDADMAXIMADERESERVASACTIVAS" length="20"
+				not-null="true" unique="false" />
+		</property>
+
+		<property name="valorMaximoPorDia" type="double">
+			<column name="E_VALORMAXIMOPORDIA" length="20" not-null="true"
+				unique="false" />
+		</property>
+
+		<list name="usuarios" table="usuarios_">
+			<key column="usuariosId" not-null="true" />
+			<list-index column="usuariosIdx" />
+			<one-to-many class="IUsuario" />
+		</list>
+		
+		<list name="reservas" table="reservas_">
+			<key column="reservasId" not-null="true" />
+			<list-index column="reservasIdx" />
+			<one-to-many class="Reserva" />
+		</list>
+		
+		<list name="categoriasAdmitidas" table="categoriasAdmitidas_">
+			<key column="categoriasAdmitidasId" not-null="true" />
+			<list-index column="categoriasAdmitidasIdx" />
+			<one-to-many class="Categoria" />
+		</list>
+
+	</class>
+</hibernate-mapping>
