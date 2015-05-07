@@ -12,15 +12,15 @@
 			<generator class="identity" />
 		</id>
 
-		<property name="marca" type="string">
+		<property name="marca" type="java.lang.String">
 			<column name="A_MARCA" length="20" not-null="true" unique="false" />
 		</property>
 
-		<property name="modelo" type="string">
+		<property name="modelo" type="java.lang.String">
 			<column name="A_MODELO" length="20" not-null="true" unique="false" />
 		</property>
 
-		<property name="anho" type="int">
+		<property name="anho" type="java.lang.Integer">
 			<column name="A_ANHO" length="20" not-null="true" unique="false" />
 		</property>
 
@@ -32,9 +32,9 @@
 			not-null="true" />
 
 		<many-to-one name="ubicacionInicial" column="ubicacionInicialId"
-			not-null="true" />
+			class="Ubicacion" not-null="true" />
 
-		<list name="reservas">
+		<list name="reservas" table="reservas_">
 			<key column="reservasId" not-null="true" />
 			<list-index column="peopleIdx" />
 			<one-to-many class="Reserva" />
