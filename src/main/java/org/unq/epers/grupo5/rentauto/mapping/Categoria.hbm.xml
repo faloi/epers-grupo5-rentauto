@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+
+
+	<class name="org.unq.epers.grupo5.rentauto.model.Categoria"
+		table="categorias">
+		<id name="id" type="java.lang.Integer">
+			<column name="A_ID" />
+			<generator class="identity" />
+		</id>
+
+		<property name="nombre" type="string">
+			<column name="C_NOMBRE" length="20" not-null="true" unique="false" />
+		</property>
+
+
+
+	</class>
+</hibernate-mapping>
