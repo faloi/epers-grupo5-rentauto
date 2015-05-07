@@ -8,7 +8,7 @@ import org.eclipse.xtend.lib.annotations.Accessors
 class Auto {
 	String marca
 	String modelo
-	Integer año
+	Integer anho
 	String patente
 	Double costoBase
 	Categoria categoria
@@ -20,7 +20,7 @@ class Auto {
 	new(String marca, String modelo, Integer anio, String patente, Categoria categoria, Double costoBase, Ubicacion ubicacionInicial){
 		this.marca = marca
 		this.modelo = modelo
-		this.año = anio
+		this.anho = anio
 		this.patente = patente
 		this.costoBase = costoBase
 		this.categoria = categoria

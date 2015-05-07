@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+
+
+	<class name="org.unq.epers.grupo5.rentauto.model.Auto" table="autos">
+		<id name="id" type="java.lang.Integer">
+			<column name="A_ID" />
+			<generator class="identity" />
+		</id>
+
+		<property name="marca" type="string">
+			<column name="A_MARCA" length="20" not-null="true" unique="false" />
+		</property>
+
+		<property name="modelo" type="string">
+			<column name="A_MODELO" length="20" not-null="true" unique="false" />
+		</property>
+
+		<property name="anho" type="int">
+			<column name="A_ANHO" length="20" not-null="true" unique="false" />
+		</property>
+
+		<property name="costoBase" type="double">
+			<column name="A_COSTOBASE" length="20" not-null="true" unique="false" />
+		</property>
+
+		<many-to-one name="categoria" column="categoriaId"
+			not-null="true" />
+
+		<many-to-one name="ubicacionInicial" column="ubicacionInicialId"
+			not-null="true" />
+
+		<list name="reservas">
+			<key column="reservasId" not-null="true" />
+			<list-index column="peopleIdx" />
+			<one-to-many class="Reserva" />
+		</list>
+
+	</class>
+</hibernate-mapping>
